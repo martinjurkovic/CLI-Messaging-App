@@ -1,0 +1,15 @@
+services:
+  - type: web
+    plan: free
+    region: frankfurt
+    name: cli_messaging_app
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "python server.py"
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: WEB_CONCURRENCY
+        value: 4
+      - key: PYTHON_VERSION
+        value: 3.8.12
